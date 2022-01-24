@@ -30,17 +30,17 @@ import com.google.gson.JsonElement;
 
 import me.lucko.helper.gson.GsonProvider;
 
-import net.kyori.text.Component;
+import net.kyori.adventure.text.Component;
 
 import ninja.leaping.configurate.ConfigurationNode;
 import ninja.leaping.configurate.objectmapping.ObjectMappingException;
 import ninja.leaping.configurate.objectmapping.serialize.TypeSerializer;
 
-@Deprecated
-public class Text3TypeSerializer implements TypeSerializer<Component> {
-    public static final Text3TypeSerializer INSTANCE = new Text3TypeSerializer();
+@org.jetbrains.annotations.ApiStatus.AvailableSince(value = "5.7.0")
+public class AdventureTypeSerializer implements TypeSerializer<Component> {
+    public static final AdventureTypeSerializer INSTANCE = new AdventureTypeSerializer();
 
-    private Text3TypeSerializer() {
+    private AdventureTypeSerializer() {
     }
 
     @Override

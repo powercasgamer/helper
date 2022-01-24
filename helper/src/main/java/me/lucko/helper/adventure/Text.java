@@ -23,28 +23,30 @@
  *  SOFTWARE.
  */
 
-package me.lucko.helper.text3;
+package me.lucko.helper.adventure;
 
-import net.kyori.text.Component;
-import net.kyori.text.TextComponent;
-import net.kyori.text.adapter.bukkit.TextAdapter;
-import net.kyori.text.serializer.legacy.LegacyComponentSerializer;
 
 import org.bukkit.command.CommandSender;
+
+import me.lucko.helper.internal.LoaderUtils;
+import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@org.jetbrains.annotations.ApiStatus.AvailableSince(value = "5.7.0")
 /**
  * Utilities for working with {@link Component}s and formatted text strings.
- * @deprecated Use {@link me.lucko.helper.adventure.Text}
+ * @since 5.7.0
  */
-@Deprecated
-public final class Text {
-
+public class Text {
     public static final char SECTION_CHAR = '\u00A7'; // §
     public static final char AMPERSAND_CHAR = '&';
+
 
     public static String joinNewline(String... strings) {
         return joinNewline(Arrays.stream(strings));
@@ -55,27 +57,29 @@ public final class Text {
     }
 
     public static TextComponent fromLegacy(String input, char character) {
-        return LegacyComponentSerializer.legacy().deserialize(input, character);
+        return LegacyComponentSerializer.legacy(character).deserialize(input);
     }
 
     public static TextComponent fromLegacy(String input) {
-        return LegacyComponentSerializer.legacy().deserialize(input);
+        return LegacyComponentSerializer.legacy(SECTION_CHAR).deserialize(input);
     }
 
     public static String toLegacy(Component component, char character) {
-        return LegacyComponentSerializer.legacy().serialize(component, character);
+        return LegacyComponentSerializer.legacy(character).serialize(component);
     }
 
     public static String toLegacy(Component component) {
-        return LegacyComponentSerializer.legacy().serialize(component);
+        return LegacyComponentSerializer.legacy(SECTION_CHAR).serialize(component);
     }
 
     public static void sendMessage(CommandSender sender, Component message) {
-        TextAdapter.sendComponent(sender, message);
+       LoaderUtils.getAdventure().sender(sender).sendMessage(message);
     }
 
     public static void sendMessage(Iterable<CommandSender> senders, Component message) {
-        TextAdapter.sendComponent(senders, message);
+        for (CommandSender sender : senders) {
+            sendMessage(sender, message);
+        }
     }
 
     public static String colorize(String s) {
