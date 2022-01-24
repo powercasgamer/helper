@@ -38,7 +38,6 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@org.jetbrains.annotations.ApiStatus.AvailableSince(value = "5.7.0")
 /**
  * Utilities for working with {@link Component}s and formatted text strings.
  * @since 5.7.0
