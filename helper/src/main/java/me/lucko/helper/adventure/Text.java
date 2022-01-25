@@ -25,18 +25,16 @@
 
 package me.lucko.helper.adventure;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.bukkit.command.CommandSender;
 
 import me.lucko.helper.internal.LoaderUtils;
-import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Utilities for working with {@link Component}s and formatted text strings.
@@ -55,11 +53,11 @@ public class Text {
         return strings.collect(Collectors.joining("\n"));
     }
 
-    public static TextComponent fromLegacy(String input, char character) {
+    public static Component fromLegacy(String input, char character) {
         return LegacyComponentSerializer.legacy(character).deserialize(input);
     }
 
-    public static TextComponent fromLegacy(String input) {
+    public static Component fromLegacy(String input) {
         return LegacyComponentSerializer.legacy(SECTION_CHAR).deserialize(input);
     }
 

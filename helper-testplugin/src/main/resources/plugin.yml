@@ -1,0 +1,7 @@
+name: helper-testplugin
+main: me.lucko.helper.testplugin.TestPlugin
+version: 5.7.0
+author: lucko
+api-version: 1.13
+depend:
+  - "helper"

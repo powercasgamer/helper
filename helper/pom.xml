@@ -89,6 +89,7 @@
                                     <include>net.kyori:text-serializer-legacy</include>
                                     <include>net.kyori:text-feature-pagination</include>
                                     <include>me.lucko:textlegacy</include>
+                                    <include>net.kyori:*</include>
                                     <include>net.kyori:adventure-api</include>
                                     <include>net.kyori:adventure-text-serializer-gson</include>
                                     <include>net.kyori:adventure-text-serializer-legacy</include>
@@ -114,10 +115,14 @@
                                     <pattern>net.kyori.text</pattern>
                                     <shadedPattern>me.lucko.helper.text3</shadedPattern>
                                 </relocation>
+                                <!--<relocation>
+                                    <pattern>net.kyori.examination</pattern>
+                                    <shadedPattern>me.lucko.helper.adventure.examination</shadedPattern>
+                                </relocation>
                                 <relocation>
                                     <pattern>net.kyori.adventure</pattern>
                                     <shadedPattern>me.lucko.helper.adventure</shadedPattern>
-                                </relocation>
+                                </relocation> -->
                                 <relocation>
                                     <pattern>net.kyori.event</pattern>
                                     <shadedPattern>me.lucko.helper.eventbus</shadedPattern>

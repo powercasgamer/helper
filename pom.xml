@@ -16,6 +16,7 @@
         <module>helper-lilypad</module>
         <module>helper-js</module>
         <module>helper-profiles</module>
+        <module>helper-testplugin</module> <!-- TEMP will be removed later -->
     </modules>
 
     <name>helper-parent</name>
