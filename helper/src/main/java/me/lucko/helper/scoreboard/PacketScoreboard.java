@@ -25,21 +25,6 @@
 
 package me.lucko.helper.scoreboard;
 
-import com.comphenix.protocol.wrappers.WrappedChatComponent;
-import com.google.common.base.Preconditions;
-
-import me.lucko.helper.Events;
-import me.lucko.helper.adventure.Text;
-import me.lucko.helper.plugin.HelperPlugin;
-import me.lucko.helper.utils.Players;
-import me.lucko.helper.utils.annotation.NonnullByDefault;
-import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
-
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.scoreboard.DisplaySlot;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,6 +32,21 @@ import java.util.UUID;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import com.comphenix.protocol.wrappers.WrappedChatComponent;
+import com.google.common.base.Preconditions;
+
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.scoreboard.DisplaySlot;
+
+import me.lucko.helper.Events;
+import me.lucko.helper.adventure.Text;
+import me.lucko.helper.plugin.HelperPlugin;
+import me.lucko.helper.utils.Players;
+import me.lucko.helper.utils.annotation.NonnullByDefault;
+import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
 
 /**
  * Implements {@link Scoreboard} using ProtocolLib.
